@@ -3,8 +3,6 @@
 import pyromod.listen
 import sys
 
-from aiohttp import web
-from plugins import web_server
 from pyrogram import Client
 from datetime import datetime
 
@@ -18,7 +16,6 @@ from config import (
     LOGGER,
     TG_BOT_TOKEN,
     TG_BOT_WORKERS,
-    PORT,
 )
 
 
@@ -147,11 +144,6 @@ class Bot(Client):
 ░╚════╝░░╚════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░╚══════╝
                                           """)
         self.username = usr_bot_me.username
-        #web-response
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        bind_address = "0.0.0.0"
-        await web.TCPSite(app, bind_address, PORT).start()
 
     async def stop(self, *args):
         await super().stop()
