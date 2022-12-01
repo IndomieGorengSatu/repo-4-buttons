@@ -30,6 +30,9 @@ HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
 # Custom Repo for updater.
 UPSTREAM_BRANCH = os.environ.get("UPSTREAM_BRANCH", "master")
 
+# Owner
+OWNER_ID = os.environ.get("OWNER_ID", "")
+
 #Database 
 DB_URI = os.environ.get("DATABASE_URL", "")
 
