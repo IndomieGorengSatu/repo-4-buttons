@@ -79,12 +79,12 @@ async def start_command(client: Bot, message: Message):
         elif len(argument) == 2:
             try:
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
-            except:
+            except BaseException:
                 return
         temp_msg = await message.reply("Please wait...")
         try:
             messages = await get_messages(client, ids)
-        except:
+        except BaseException:
             await message.reply_text("Something went wrong..!")
             return
         await temp_msg.delete()
